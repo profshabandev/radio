@@ -1,0 +1,104 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Container */
+.card {
+    background: white;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.options-container {
+    padding: 20px;
+}
+
+/* Hide Default Radio */
+.radio-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom Option Row */
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-option:hover {
+    background-color: #f9f9f9;
+}
+
+/* The Outer Circle */
+.custom-radio {
+    height: 18px;
+    width: 18px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.label-text {
+    font-size: 1rem;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+/* --- Active/Checked States --- */
+
+/* Change Row Background when Checked */
+.radio-option input:checked ~ .label-text,
+.radio-option input:checked ~ .custom-radio {
+    color: white;
+}
+
+.radio-option:has(input:checked) {
+    background-color: #333;
+    border-color: #333;
+}
+
+/* Inner Dot for Checked State */
+.radio-option input:checked + .custom-radio {
+    background-color: #fff; /* The circle becomes white */
+    border: 4px solid #333; /* Dark ring created by thick border */
+    box-shadow: 0 0 0 2px white; /* Outer white ring */
+}
+
+.radio-option input:checked ~ .label-text {
+    color: #fff;
+}
